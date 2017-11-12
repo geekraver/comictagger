@@ -1,3 +1,7 @@
 /.idea/
 /nbproject/
 *.pyc
+
+build/
+comictagger.egg-info/
+dist/
