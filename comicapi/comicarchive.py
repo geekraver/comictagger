@@ -121,7 +121,9 @@ class ZipArchiver:
             zf.writestr(archive_file, data)
             zf.close()
             return True
-        except:
+        except Exception as e:
+            print >> sys.stderr, u"failed to build zipfile [{0}]: {1} :: {2}".format(
+                e, self.path, archive_file)
             return False
 
     def getArchiveFilenameList(self):
@@ -225,7 +227,9 @@ class ZipArchiver:
                 fo.close()
             else:
                 raise Exception('Failed to write comment to zip file!')
-        except:
+        except Exception as e:
+            print >> sys.stderr, u"failed to add comment to zipfile [{0}]: {1} :: {2}".format(
+                e, self.path, filename)
             return False
         else:
             return True
@@ -311,7 +315,9 @@ class RarArchiver:
                     time.sleep(1)
 
                 os.remove(tmp_name)
-            except:
+            except Exception as e:
+                print >> sys.stderr, u"Unexpected exception in setArchiveComment(): [{0}] for {1}".format(
+                    str(e), self.path)
                 return False
             else:
                 return True
