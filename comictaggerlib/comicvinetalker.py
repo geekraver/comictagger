@@ -77,7 +77,7 @@ class ComicVineTalkerException(Exception):
 
 class ComicVineTalker(QObject):
 
-    logo_url = "http://static.comicvine.com/bundles/comicvinesite/images/logo.png"
+    logo_url = "http://static.comicvine.gamespot.com/bundles/comicvinesite/images/logo.png"
     api_key = ""
 
     @staticmethod
@@ -90,7 +90,7 @@ class ComicVineTalker(QObject):
     def __init__(self):
         QObject.__init__(self)
 
-        self.api_base_url = "http://www.comicvine.com/api"
+        self.api_base_url = "http://www.comicvine.gamespot.com/api"
         self.wait_for_rate_limit = False
 
         # key that is registered to comictagger
